@@ -1,45 +1,56 @@
-//4a. Basic hello program of Swing displaying the message Hello! VI C , Welcome to Swing Programming
-//in Blue color plain font with font size of 32 using Jframe and Jlabel
+//5a. Develop a Swing program in Java to add the countries USA, India, Vietnam, Canada, Denmark,
+//France, Great Britain, Japan, Africa, Greenland, Singapore into a JList and display them on console
+//whenever the countries are selected on the list.
 package swing;
 
-import java.awt.Color;
-import java.awt.Font;
 import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.*;
 
-class p1 {
+public class p1 extends JFrame {
 
-    p1() {
+    JList<String> countryList;
 
-        // Create JFrame
-        JFrame jfrm = new JFrame("A Simple Swing Application");
+    public p1() {
 
-        // Set size (increased for large font)
-        jfrm.setSize(800, 200);
+        // Frame settings
+        setTitle("Country List Demo");
+        setSize(400, 300);
+        setLayout(new FlowLayout());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Close operation
-        jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Country list
+        String countries[] = {
+            "USA", "India", "Vietnam", "Canada", "Denmark",
+            "France", "Great Britain", "Japan", "Africa",
+            "Greenland", "Singapore"
+        };
 
-        // Create JLabel
-        JLabel jlab = new JLabel("Hello! VI C, Welcome to Swing Programming!", JLabel.CENTER);
+        // Create JList
+        countryList = new JList<>(countries);
 
-        // Set font and color
-        jlab.setFont(new Font("Verdana", Font.PLAIN, 32));
-        jlab.setForeground(Color.BLUE);
+        // Selection mode
+        countryList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-        // Add label to frame
-        jfrm.add(jlab);
+        // Add listener
+        countryList.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
 
-        // Make frame visible
-        jfrm.setVisible(true);
-    }
-
-    public static void main(String args[]) {
-
-        // Run on Event Dispatch Thread
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new p1();
+                if (!e.getValueIsAdjusting()) {
+                    java.util.List<String> selected = countryList.getSelectedValuesList();
+                    System.out.println("Selected Countries: " + selected);
+                }
             }
         });
+
+        // Add scroll pane
+        JScrollPane sp = new JScrollPane(countryList);
+        add(sp);
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new p1();
     }
 }

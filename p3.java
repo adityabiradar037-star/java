@@ -1,57 +1,74 @@
-//4c. Develop a Swing program in Java to display a message “Digital Clock is pressed” or “Hour Glass
-//is pressed” depending upon the Jbutton with image either Digital Clock or Hour Glass is pressed by
-//implementing the event handling mechanism with addActionListener( ).   
+//5c. Develop a Swing program in Java to add the countries USA, India, Vietnam, Canada, Denmark,
+//France, Great Britain, Japan, Africa, Greenland, Singapore into a JList and display the capital of the
+//countries on console whenever the countries are selected on the list.
 package swing;
 
 import javax.swing.*;
+import javax.swing.event.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.util.HashMap;
 
-public class p3 extends JFrame implements ActionListener {
+public class p3 extends JFrame {
 
-    JLabel label;
-    JButton btnClock, btnHourGlass;
+    JList<String> countryList;
+    HashMap<String, String> capitals;
 
     public p3() {
 
         // Frame settings
-        setTitle("Image Button Demo");
-        setSize(500, 300);
+        setTitle("Country Capitals Demo");
+        setSize(400, 300);
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Load images (ensure images are in same project folder)
-        ImageIcon clockIcon = new ImageIcon("digital.jpg");
-        ImageIcon hourGlassIcon = new ImageIcon("hourglass.jpg");
+        // Country list
+        String countries[] = {
+            "USA", "India", "Vietnam", "Canada", "Denmark",
+            "France", "Great Britain", "Japan", "Africa",
+            "Greenland", "Singapore"
+        };
 
-        // Create buttons with images
-        btnClock = new JButton("Digital Clock", clockIcon);
-        btnHourGlass = new JButton("Hour Glass", hourGlassIcon);
+        // Capitals mapping
+        capitals = new HashMap<>();
+        capitals.put("USA", "Washington, D.C.");
+        capitals.put("India", "New Delhi");
+        capitals.put("Vietnam", "Hanoi");
+        capitals.put("Canada", "Ottawa");
+        capitals.put("Denmark", "Copenhagen");
+        capitals.put("France", "Paris");
+        capitals.put("Great Britain", "London");
+        capitals.put("Japan", "Tokyo");
+        capitals.put("Africa", "No single capital");
+        capitals.put("Greenland", "Nuuk");
+        capitals.put("Singapore", "Singapore");
 
-        // Create label
-        label = new JLabel("Press a button");
+        // Create JList
+        countryList = new JList<>(countries);
 
-        // Add ActionListener
-        btnClock.addActionListener(this);
-        btnHourGlass.addActionListener(this);
+        // Selection mode
+        countryList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-        // Add components
-        add(btnClock);
-        add(btnHourGlass);
-        add(label);
+        // Add listener
+        countryList.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
 
-        // Make visible
+                if (!e.getValueIsAdjusting()) {
+
+                    String selectedCountry = countryList.getSelectedValue();
+
+                    if (selectedCountry != null) {
+                        String capital = capitals.get(selectedCountry);
+                        System.out.println("Capital of " + selectedCountry + " is: " + capital);
+                    }
+                }
+            }
+        });
+
+        // Add scroll pane
+        JScrollPane sp = new JScrollPane(countryList);
+        add(sp);
+
         setVisible(true);
-    }
-
-    // Event handling
-    public void actionPerformed(ActionEvent e) {
-
-        if (e.getSource() == btnClock) {
-            label.setText("Digital Clock is pressed");
-        } else if (e.getSource() == btnHourGlass) {
-            label.setText("Hour Glass is pressed");
-        }
     }
 
     public static void main(String[] args) {

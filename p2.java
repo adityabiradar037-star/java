@@ -1,53 +1,42 @@
-//4b. Develop a Swing program in Java to display a message “Srilanka is pressed” or “India is pressed”
-//depending upon the Jbutton either Srilanka or India is pressed by implementing the event handling
-//mechanism with addActionListener( ).
+//5b. Develop a Swing program in Java to create a Tabbed Pan of RED, BLUE and GREEN and display
+//the concerned color whenever the specific tab is selected in the Pan.
 package swing;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
-public class p2 extends JFrame implements ActionListener {
-
-    JLabel label;
-    JButton btnIndia, btnSrilanka;
+public class p2 extends JFrame {
 
     public p2() {
 
         // Frame settings
-        setTitle("Country Button Demo");
-        setSize(400, 200);
-        setLayout(new FlowLayout());
+        setTitle("Tabbed Pane Demo");
+        setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Create buttons
-        btnIndia = new JButton("India");
-        btnSrilanka = new JButton("Srilanka");
+        // Create TabbedPane
+        JTabbedPane tabbedPane = new JTabbedPane();
 
-        // Create label
-        label = new JLabel("Press a button");
+        // Create panels for each tab
+        JPanel redPanel = new JPanel();
+        redPanel.setBackground(Color.RED);
 
-        // Add ActionListener
-        btnIndia.addActionListener(this);
-        btnSrilanka.addActionListener(this);
+        JPanel bluePanel = new JPanel();
+        bluePanel.setBackground(Color.BLUE);
 
-        // Add components
-        add(btnIndia);
-        add(btnSrilanka);
-        add(label);
+        JPanel greenPanel = new JPanel();
+        greenPanel.setBackground(Color.GREEN);
+
+        // Add tabs
+        tabbedPane.addTab("RED", redPanel);
+        tabbedPane.addTab("BLUE", bluePanel);
+        tabbedPane.addTab("GREEN", greenPanel);
+
+        // Add to frame
+        add(tabbedPane);
 
         // Make visible
         setVisible(true);
-    }
-
-    // Event handling
-    public void actionPerformed(ActionEvent e) {
-
-        if (e.getSource() == btnIndia) {
-            label.setText("India is pressed");
-        } else if (e.getSource() == btnSrilanka) {
-            label.setText("Srilanka is pressed");
-        }
     }
 
     public static void main(String[] args) {

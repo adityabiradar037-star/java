@@ -1,42 +1,45 @@
-//Q4. Write a Java Program for Checking if a string reads the same backward as forward (ignoring case
-//and punctuation) using user defined function isPalindrome():
-package stringoperations;
+//5d. Develop a Swing program in Java to create a Tabbed Pan of Cyan, Magenta and Yellow and
+//display the concerned color whenever the specific tab is selected in the Pan
+package swing;
 
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
 
-public class p4 {
+public class p4 extends JFrame {
 
-    // User-defined function
-    public static boolean isPalindrome(String str) {
+    public p4() {
 
-        // Remove non-alphanumeric characters and convert to lowercase
-        String cleaned = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        // Frame settings
+        setTitle("Tabbed Pane Colors");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Reverse the cleaned string
-        String reversed = "";
-        for (int i = cleaned.length() - 1; i >= 0; i--) {
-            reversed += cleaned.charAt(i);
-        }
+        // Create TabbedPane
+        JTabbedPane tabbedPane = new JTabbedPane();
 
-        // Compare original cleaned string with reversed
-        return cleaned.equals(reversed);
+        // Create panels
+        JPanel cyanPanel = new JPanel();
+        cyanPanel.setBackground(Color.CYAN);
+
+        JPanel magentaPanel = new JPanel();
+        magentaPanel.setBackground(Color.MAGENTA);
+
+        JPanel yellowPanel = new JPanel();
+        yellowPanel.setBackground(Color.YELLOW);
+
+        // Add tabs
+        tabbedPane.addTab("CYAN", cyanPanel);
+        tabbedPane.addTab("MAGENTA", magentaPanel);
+        tabbedPane.addTab("YELLOW", yellowPanel);
+
+        // Add to frame
+        add(tabbedPane);
+
+        // Make visible
+        setVisible(true);
     }
 
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        // Taking input
-        System.out.print("Enter a string: ");
-        String input = sc.nextLine();
-
-        // Check palindrome
-        if (isPalindrome(input)) {
-            System.out.println("The string is a Palindrome.");
-        } else {
-            System.out.println("The string is NOT a Palindrome.");
-        }
-
-        sc.close();
+        new p4();
     }
 }
