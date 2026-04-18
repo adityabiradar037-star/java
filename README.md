@@ -31,3 +31,15 @@ https://github.com/adityabiradar037-star/java/blob/main/removecolors.png
 sublistcolors-o/plink
 https://github.com/adityabiradar037-star/java/blob/main/sublistcolors.png
 
+stringoperationdemo-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/stringoperationdemo.png
+
+
+
+
+
+
+
+
+
+
