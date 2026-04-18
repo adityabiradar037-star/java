@@ -1,31 +1,43 @@
-//Write a Java program to iterate through all elements in a linked list starting at the
-//specified position ( 2 nd ) using iterator ( hint : Iterator iteratorobj = listobj.listIterator(1))
-package arraylist2;
-import java.util.*;
+//Q6. Write a Java Program for Capitalizing the first letter of each word. using user defined function
+//capitalizeWords()
+package stringoperations;
+
+import java.util.Scanner;
 
 public class p6 {
+
+    // User-defined function
+    public static String capitalizeWords(String str) {
+
+        String[] words = str.split("\\s+"); // split by spaces
+        StringBuilder result = new StringBuilder();
+
+        for (String word : words) {
+            if (word.length() > 0) {
+                // Capitalize first letter + باقي الكلمة
+                result.append(Character.toUpperCase(word.charAt(0)))
+                      .append(word.substring(1).toLowerCase())
+                      .append(" ");
+            }
+        }
+
+        return result.toString().trim();
+    }
+
     public static void main(String[] args) {
 
-        // Creating LinkedList
-        LinkedList<String> listobj = new LinkedList<>();
+        Scanner sc = new Scanner(System.in);
 
-        // Adding elements
-        listobj.add("Red");
-        listobj.add("Blue");
-        listobj.add("Green");
-        listobj.add("Yellow");
-        listobj.add("Black");
+        // Taking input
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
 
-        // Display original list
-        System.out.println("Original List: " + listobj);
+        // Capitalizing words
+        String output = capitalizeWords(input);
 
-        // Iterator starting from 2nd position (index 1)
-        ListIterator<String> iteratorobj = listobj.listIterator(1);
+        // Output
+        System.out.println("After Capitalizing: " + output);
 
-        // Iterating from 2nd element
-        System.out.print("Elements from 2nd position: ");
-        while (iteratorobj.hasNext()) {
-            System.out.print(iteratorobj.next() + " ");
-        }
+        sc.close();
     }
 }

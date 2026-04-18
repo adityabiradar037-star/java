@@ -1,32 +1,40 @@
-//Write a Java program to iterate a linked list in reverse order (using
-//objlist.descendingIterator())
-package arraylist2;
+//Q7. Write a Java Program for Shortening a string to a specified length and adds an ellipsis using user
+//defined function truncate()
+package stringoperations;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class p7 {
+
+    // User-defined function
+    public static String truncate(String str, int maxLength) {
+
+        // If string is shorter or equal, return as it is
+        if (str == null || str.length() <= maxLength) {
+            return str;
+        }
+
+        // Otherwise truncate and add ellipsis
+        return str.substring(0, maxLength) + "...";
+    }
+
     public static void main(String[] args) {
 
-        // Creating LinkedList
-        LinkedList<String> objlist = new LinkedList<>();
+        Scanner sc = new Scanner(System.in);
 
-        // Adding elements
-        objlist.add("Red");
-        objlist.add("Blue");
-        objlist.add("Green");
-        objlist.add("Yellow");
-        objlist.add("Black");
+        // Taking input
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
 
-        // Display original list
-        System.out.println("Original List: " + objlist);
+        System.out.print("Enter maximum length: ");
+        int length = sc.nextInt();
 
-        // Using descendingIterator for reverse iteration
-        Iterator<String> iterator = objlist.descendingIterator();
+        // Calling function
+        String result = truncate(input, length);
 
-        // Iterating in reverse order
-        System.out.print("Reverse Order: ");
-        while (iterator.hasNext()) {
-            System.out.print(iterator.next() + " ");
-        }
+        // Output
+        System.out.println("Truncated String: " + result);
+
+        sc.close();
     }
 }
