@@ -106,6 +106,29 @@ https://github.com/adityabiradar037-star/java/blob/main/lab6p1.png
 lab6p1a-o/plink
 https://github.com/adityabiradar037-star/java/blob/main/lab6p1a.png
 
+lab7-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab7.png
+
+lab7a-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab7a.png
+
+lab7b-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab7b.png
+
+lab7b1-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab7b1.png
+
+lab7b2-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab7b2.png
+
+lab7b3-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab7b3.png
+
+lab7b4-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab7b4.png
+
+
+
 
 
 
