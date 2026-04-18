@@ -67,6 +67,15 @@ https://github.com/adityabiradar037-star/java/blob/main/p10.png
 stringoperation-o/plink
 https://github.com/adityabiradar037-star/java/blob/main/stringoperationdemo.png
 
+lab4p1-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab4p1.png
+
+lab4p2-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab4p2.png
+
+lab4p3-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab4p3.png
+
 
 
 
