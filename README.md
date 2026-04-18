@@ -160,6 +160,18 @@ https://github.com/adityabiradar037-star/java/blob/main/lab9c2.png
 lab9c3-o/plink
 https://github.com/adityabiradar037-star/java/blob/main/lab9c3.png
 
+lab10a-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab10a.png
+
+lab10a1-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab10a1.png
+
+lab10b1-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab10b1.png
+
+lab10b2-o/plink
+https://github.com/adityabiradar037-star/java/blob/main/lab10b2.png
+
 
 
 
